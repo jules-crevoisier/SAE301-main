@@ -5,6 +5,7 @@ html, body {
   padding: 0;
   overflow-x: hidden;
   font-family: "Karla", sans-serif;
+  font-size: 16px;
 }
 
 a {
@@ -13,9 +14,9 @@ a {
 }
 
 header {
-  height: 15vh;
-  min-height: 80px;
-  font-size: larger;
+  height: auto;
+  min-height: 70px;
+  padding: 15px 0;
   display: flex;
   align-items: center;
 }
@@ -27,14 +28,13 @@ header > div {
   padding: 0 2rem;
 }
 header > div #logo {
-  height: 10vh;
-  min-height: 50px;
+  height: 60px;
 }
 header > div div {
   display: flex;
-  width: 30%;
-  font-size: clamp(18px, 2.5vw, 40px);
-  justify-content: space-between;
+  width: auto;
+  gap: 2rem;
+  font-size: 1.1rem;
 }
 header > div div .active-link {
   font-weight: bold;
@@ -42,8 +42,8 @@ header > div div .active-link {
 
 footer {
   height: auto;
-  min-height: 40vh;
-  padding: 5vh 0;
+  min-height: 250px;
+  padding: 40px 20px;
   background-color: #B8B7BA;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -57,20 +57,24 @@ footer > div:nth-child(1) {
   align-items: center;
 }
 footer > div:nth-child(1) > div {
-  font-size: clamp(18px, 2vw, 30px);
-  width: 60%;
+  font-size: 0.95rem;
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
-  justify-content: space-around;
+  gap: 10px;
+}
+footer > div:nth-child(1) > div img {
+  width: 24px;
+  height: 24px;
 }
 footer > div:nth-child(2) {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 footer > div:nth-child(2) a {
-  font-size: clamp(20px, 2.5vw, 40px);
+  font-size: 1rem;
   text-align: center;
 }
 footer > div:nth-child(3) {
@@ -79,15 +83,16 @@ footer > div:nth-child(3) {
   align-items: center;
 }
 footer > div:nth-child(3) img {
-  width: 60%;
+  width: 50%;
+  max-width: 150px;
   display: block;
 }
 
 /* --- Accueil --- */
 .hero {
-  min-height: 70vh;
+  min-height: 60vh;
   height: auto;
-  padding: 5vh 0;
+  padding: 40px 0;
   background: url("../images/BabyBoomer2.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -98,58 +103,59 @@ footer > div:nth-child(3) img {
   flex-direction: column;
 }
 .hero div {
-  width: 75%;
-  min-height: 300px;
+  width: 70%;
+  max-width: 800px;
+  min-height: 200px;
   height: auto;
-  padding: 3vh;
+  padding: 30px;
   background-color: rgba(244, 244, 244, 0.27);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .hero #hero {
-  width: 75%;
-  max-width: 100%;
+  width: 100%;
+  max-width: 600px;
   height: auto;
 }
 .hero a {
-  width: 30%;
-  min-width: 200px;
+  width: auto;
+  min-width: 180px;
   text-align: center;
-  margin-top: 4vh;
+  margin-top: 25px;
   background-color: rgba(119, 77, 154, 0.38);
   border-radius: 25px;
+  padding: 12px 30px;
 }
 .hero a p {
   color: white;
-  font-size: clamp(20px, 2.5vw, 40px);
-  padding: 10px 20px;
+  font-size: 1.1rem;
   margin: 0;
 }
 
 .acc2 {
   min-height: auto;
   height: auto;
-  padding: 5vh 0;
+  padding: 50px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.acc2 > div {
+.acc2 > div:first-child {
   display: flex;
   margin-top: 30px;
-  width: 85%;
-  max-width: 1400px;
+  width: 90%;
+  max-width: 1200px;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
 }
-.acc2 > div div:nth-child(1) {
+.acc2 > div:first-child div:nth-child(1) {
   display: flex;
-  width: 45%;
-  max-width: 500px;
-  min-width: 280px;
+  width: 40%;
+  max-width: 400px;
+  min-width: 250px;
   flex-direction: column;
   justify-content: center;
   background: url("../images/nails.png");
@@ -157,42 +163,57 @@ footer > div:nth-child(3) img {
   background-position: center;
   background-size: cover;
   aspect-ratio: 1/1;
+  border-radius: 15px;
 }
-.acc2 > div div:nth-child(2) {
-  width: 50%;
+.acc2 > div:first-child div:nth-child(2) {
+  width: 55%;
+  text-align: center;
 }
-.acc2 > div div:nth-child(2) h1 {
-  font-size: clamp(32px, 4vw, 65px);
-  margin-bottom: 0;
+.acc2 > div:first-child div:nth-child(2) h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #333;
 }
-.acc2 > div div:nth-child(2) p {
-  font-size: clamp(18px, 2.5vw, 45px);
+.acc2 > div:first-child div:nth-child(2) p {
+  font-size: 1.1rem;
   font-style: italic;
+  line-height: 1.6;
+  color: #555;
 }
-.acc2 > div p {
-  font-size: clamp(16px, 2vw, 35px);
+.acc2 > div:last-child {
+  width: 90%;
+  max-width: 900px;
+  margin-top: 30px;
+  text-align: center;
+}
+.acc2 > div:last-child p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  margin: 0;
 }
 
 .acc3 {
   min-height: auto;
   height: auto;
-  padding: 3vh 0 5vh 0;
+  padding: 40px 0;
   display: block;
   overflow: hidden;
 }
 .acc3 > h1 {
-  margin: 0 auto 20px auto;
-  padding: 1vh 3vw;
-  font-size: clamp(28px, 3vw, 50px);
+  margin: 0 auto 25px auto;
+  padding: 10px 20px;
+  font-size: 1.8rem;
   text-align: center;
   color: #333;
   font-weight: bold;
 }
 .acc3 .carousel-wrapper {
   position: relative;
-  width: 80%;
+  width: 85%;
+  max-width: 1000px;
   margin: 0 auto;
-  height: 420px;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -209,16 +230,15 @@ footer > div:nth-child(3) img {
 }
 .acc3 .card {
   position: absolute;
-  width: 280px;
-  max-width: 90vw;
+  width: 260px;
   background: rgba(255, 255, 255, 0.95);
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
   opacity: 0;
   padding-bottom: 15px;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 .acc3 .card[data-pos=active] {
   opacity: 1;
@@ -228,14 +248,13 @@ footer > div:nth-child(3) img {
 .acc3 .card[data-pos=prev], .acc3 .card[data-pos=next] {
   opacity: 1;
   z-index: 5;
-  filter: brightness(0.9);
-  transform: scale(0.85);
+  filter: brightness(0.92);
 }
 .acc3 .card[data-pos=prev] {
-  transform: translateX(-110%) scale(0.85);
+  transform: translateX(-115%) scale(0.85);
 }
 .acc3 .card[data-pos=next] {
-  transform: translateX(110%) scale(0.85);
+  transform: translateX(115%) scale(0.85);
 }
 .acc3 .card[data-pos=hidden] {
   opacity: 0;
@@ -245,10 +264,10 @@ footer > div:nth-child(3) img {
 }
 .acc3 .card .card-image-wrapper {
   width: 90%;
-  margin: 10px auto;
+  margin: 12px auto;
   aspect-ratio: 1;
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 12px;
 }
 .acc3 .card .card-image-wrapper img {
   width: 100%;
@@ -261,42 +280,43 @@ footer > div:nth-child(3) img {
 }
 .acc3 .card .card-content h3 {
   font-size: 1.1rem;
-  margin: 8px 0;
+  margin: 10px 0 8px;
   color: #333;
 }
 .acc3 .card .card-content p {
   font-size: 0.9rem;
-  line-height: 1.4;
+  line-height: 1.5;
   min-height: 60px;
-  color: #555;
+  color: #666;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .acc3 .card .action-btn {
-  background-color: rgba(119, 77, 154, 0.33);
+  background-color: rgba(119, 77, 154, 0.35);
   border: none;
-  padding: 8px 20px;
-  border-radius: 8px;
+  padding: 10px 25px;
+  border-radius: 20px;
   cursor: pointer;
   transition: all 0.3s;
   font-family: "Poppins", sans-serif;
-  width: 50%;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  color: #333;
 }
 .acc3 .card .action-btn:hover {
-  background-color: #a894bd;
+  background-color: rgba(119, 77, 154, 0.5);
   transform: translateY(-2px);
 }
 .acc3 .nav-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: black;
+  background-color: #333;
   color: white;
-  width: 45px;
-  height: 45px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -306,7 +326,7 @@ footer > div:nth-child(3) img {
 }
 .acc3 .nav-btn:hover {
   transform: translateY(-50%) scale(1.1);
-  background-color: #333;
+  background-color: #555;
 }
 .acc3 .nav-btn.prev-btn {
   left: 10px;
@@ -315,15 +335,15 @@ footer > div:nth-child(3) img {
   right: 10px;
 }
 .acc3 .nav-btn svg {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 /* --- Blog --- */
 #blog1 {
-  min-height: 60vh;
+  min-height: 50vh;
   height: auto;
-  padding: 5vh 0;
+  padding: 50px 0;
   background: url("../images/blog.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -333,281 +353,305 @@ footer > div:nth-child(3) img {
   align-items: center;
 }
 #blog1 > div {
-  width: 65%;
-  background-color: rgba(244, 244, 244, 0.27);
-  padding: 3vh;
+  width: 60%;
+  max-width: 600px;
+  background-color: rgba(244, 244, 244, 0.3);
+  padding: 30px;
+  border-radius: 10px;
 }
 #blog1 > div p {
   width: 100%;
   text-align: center;
-  font-size: clamp(36px, 6vw, 96px);
+  font-size: 2.5rem;
   color: #FFFFFF;
   margin: 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .blog2 {
-  max-width: 100vw;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 3vh 2vw;
+  padding: 40px 20px;
 }
 .blog2 .filter-header {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 .blog2 .filter-header .custom-select {
-  padding: 12px 20px;
-  border-radius: 15px;
+  padding: 10px 18px;
+  border-radius: 10px;
   border: #774D9A 2px solid;
-  color: #888;
-  width: 280px;
-  font-size: 16px;
+  color: #666;
+  width: 220px;
+  font-size: 0.95rem;
   cursor: pointer;
   outline: none;
-  background: white url("data:image/svg+xml;...") no-repeat right 15px center/18px;
+  background: white;
 }
 .blog2 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 25px;
 }
 .blog2 .services-grid .card {
-  background-color: var(--bg-card);
-  border-radius: 28px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
   padding: 15px;
   text-align: center;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.blog2 .services-grid .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 .blog2 .services-grid .card .card-image img {
-  width: 80%;
+  width: 100%;
   margin: auto;
   object-fit: cover;
-  border-radius: 22px;
+  border-radius: 15px;
   display: block;
   aspect-ratio: 1;
 }
 .blog2 .services-grid .card .card-content h3 {
-  font-size: 1.2rem;
-  margin: 18px 0 20px;
+  font-size: 1.1rem;
+  margin: 15px 0;
   font-weight: 600;
+  color: #333;
 }
 .blog2 .services-grid .card .card-content .btn-reserver {
-  font-size: 20px;
+  font-size: 0.9rem;
   padding: 10px 20px;
-  border-radius: 50px;
+  border-radius: 25px;
   background-color: rgba(119, 77, 154, 0.38);
   color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.blog2 .services-grid .card .card-content .btn-reserver:hover {
+  background-color: #774D9A;
 }
 
 /* --- Responsive pour écrans laptops (hauteur réduite) --- */
-@media (max-height: 800px) {
+@media (max-height: 750px) {
   .hero {
     min-height: auto;
-    padding: 3vh 0;
+    padding: 30px 0;
   }
   .hero div {
-    min-height: 200px;
-    padding: 2vh;
+    min-height: 150px;
+    padding: 20px;
   }
   .acc2 {
-    padding: 3vh 0;
-  }
-  .acc2 > div {
-    margin-top: 20px;
+    padding: 30px 20px;
   }
   .acc3 {
-    padding: 2vh 0 3vh 0;
+    padding: 25px 0;
   }
   .acc3 > h1 {
     margin-bottom: 15px;
-    padding: 1vh;
+    font-size: 1.5rem;
   }
   .acc3 .carousel-wrapper {
-    height: 380px;
+    height: 350px;
   }
   .acc3 .card {
-    width: 240px;
-  }
-  .acc3 .card .card-image-wrapper {
-    margin: 8px auto;
-  }
-  .acc3 .card .card-content {
-    padding: 0 10px;
+    width: 230px;
   }
   .acc3 .card .card-content h3 {
     font-size: 1rem;
-    margin: 5px 0;
   }
   .acc3 .card .card-content p {
     font-size: 0.85rem;
     min-height: 50px;
   }
-  .acc3 .card .action-btn {
-    padding: 6px 15px;
-    font-size: 0.85rem;
-  }
 }
 /* --- Responsive pour largeur d'écran --- */
-@media (max-width: 1400px) {
-  .acc2 > div {
-    width: 90%;
-    gap: 25px;
-  }
-  .acc2 > div div:nth-child(1) {
-    width: 40%;
-    max-width: 400px;
-  }
-  .acc2 > div div:nth-child(2) {
-    width: 55%;
-  }
-  .acc3 .carousel-wrapper {
-    width: 85%;
-  }
-  .acc3 .card {
-    width: 260px;
-  }
-  .acc3 .card[data-pos=prev] {
-    transform: translateX(-105%) scale(0.85);
-  }
-  .acc3 .card[data-pos=next] {
-    transform: translateX(105%) scale(0.85);
-  }
-}
 @media (max-width: 1200px) {
   header > div div {
+    gap: 1.5rem;
+    font-size: 1rem;
+  }
+  .acc2 > div:first-child {
+    width: 95%;
+    gap: 30px;
+  }
+  .acc2 > div:first-child div:nth-child(1) {
     width: 35%;
+    max-width: 350px;
   }
-  .acc2 > div div:nth-child(1) {
-    width: 45%;
-    max-width: 380px;
+  .acc2 > div:first-child div:nth-child(2) {
+    width: 60%;
   }
-  .acc2 > div div:nth-child(2) {
-    width: 50%;
+  .acc2 > div:first-child div:nth-child(2) h1 {
+    font-size: 1.8rem;
+  }
+  .acc2 > div:first-child div:nth-child(2) p {
+    font-size: 1rem;
   }
   .acc3 .carousel-wrapper {
     width: 90%;
+  }
+  .acc3 .card {
+    width: 240px;
+  }
+  .acc3 .card[data-pos=prev] {
+    transform: translateX(-110%) scale(0.85);
+  }
+  .acc3 .card[data-pos=next] {
+    transform: translateX(110%) scale(0.85);
   }
   .blog2 .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width: 992px) {
+  header > div {
+    padding: 0 1.5rem;
+  }
+  header > div #logo {
+    height: 50px;
+  }
   header > div div {
-    width: 45%;
+    gap: 1.2rem;
+    font-size: 0.95rem;
   }
   footer {
-    padding: 3vh 0;
+    padding: 30px 15px;
+    min-height: 200px;
   }
   .hero {
-    padding: 3vh 0;
+    padding: 30px 0;
   }
   .hero div {
-    width: 85%;
+    width: 80%;
+    padding: 25px;
   }
-  .hero #hero {
-    width: 85%;
-  }
-  .hero a {
-    width: 45%;
+  .hero a p {
+    font-size: 1rem;
   }
   .acc2 {
-    padding: 4vh 0;
+    padding: 40px 15px;
   }
-  .acc2 > div {
+  .acc2 > div:first-child {
     flex-direction: column;
-    width: 90%;
   }
-  .acc2 > div div:nth-child(1) {
-    width: 80%;
-    max-width: 400px;
+  .acc2 > div:first-child div:nth-child(1) {
+    width: 70%;
+    max-width: 350px;
   }
-  .acc2 > div div:nth-child(2) {
+  .acc2 > div:first-child div:nth-child(2) {
     width: 90%;
     text-align: center;
+  }
+  .acc2 > div:first-child div:nth-child(2) h1 {
+    font-size: 1.6rem;
+  }
+  .acc2 > div:first-child div:nth-child(2) p {
+    font-size: 0.95rem;
+  }
+  .acc2 > div:last-child p {
+    font-size: 0.95rem;
+  }
+  .acc3 > h1 {
+    font-size: 1.5rem;
   }
   .acc3 .carousel-wrapper {
     height: 380px;
     width: 95%;
   }
   .acc3 .card {
-    width: 240px;
+    width: 230px;
   }
   .acc3 .card[data-pos=prev] {
-    transform: translateX(-100%) scale(0.8);
+    transform: translateX(-105%) scale(0.82);
   }
   .acc3 .card[data-pos=next] {
-    transform: translateX(100%) scale(0.8);
+    transform: translateX(105%) scale(0.82);
   }
   #blog1 > div {
-    width: 80%;
+    width: 75%;
+  }
+  #blog1 > div p {
+    font-size: 2rem;
   }
 }
 @media (max-width: 768px) {
-  header {
-    height: auto;
-    min-height: 10vh;
-  }
   header > div {
     flex-direction: column;
-    padding: 1rem;
-    gap: 1rem;
+    padding: 10px 15px;
+    gap: 10px;
   }
   header > div #logo {
-    height: 8vh;
+    height: 45px;
   }
   header > div div {
     width: 100%;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 0.9rem;
   }
   footer {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 3vh 2rem;
+    gap: 25px;
     text-align: center;
   }
   footer > div:nth-child(1) > div {
-    width: 80%;
+    width: 60%;
+    justify-content: center;
   }
   footer > div:nth-child(3) img {
-    width: 40%;
+    width: 80px;
   }
   .hero div {
-    width: 90%;
-  }
-  .hero #hero {
-    width: 90%;
+    width: 85%;
   }
   .hero a {
-    width: 60%;
+    padding: 10px 25px;
   }
-  .acc2 > div {
-    width: 95%;
+  .hero a p {
+    font-size: 0.95rem;
   }
-  .acc2 > div div:nth-child(1) {
-    width: 90%;
+  .acc2 > div:first-child div:nth-child(1) {
+    width: 80%;
   }
-  .acc2 > div div:nth-child(2) {
-    width: 95%;
+  .acc2 > div:first-child div:nth-child(2) h1 {
+    font-size: 1.4rem;
+  }
+  .acc2 > div:first-child div:nth-child(2) p {
+    font-size: 0.9rem;
+  }
+  .acc3 {
+    padding: 30px 0;
+  }
+  .acc3 > h1 {
+    font-size: 1.3rem;
   }
   .acc3 .carousel-wrapper {
     width: 100%;
     height: 360px;
   }
   .acc3 .card {
-    width: 220px;
+    width: 210px;
   }
   .acc3 .card[data-pos=prev] {
-    transform: translateX(-90%) scale(0.75);
+    transform: translateX(-95%) scale(0.8);
   }
   .acc3 .card[data-pos=next] {
-    transform: translateX(90%) scale(0.75);
+    transform: translateX(95%) scale(0.8);
   }
-  .acc3 .card .card-content {
-    padding: 0 10px;
+  .acc3 .card .card-content h3 {
+    font-size: 0.95rem;
   }
   .acc3 .card .card-content p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     min-height: 50px;
+  }
+  .acc3 .card .action-btn {
+    padding: 8px 20px;
+    font-size: 0.85rem;
   }
   .acc3 .nav-btn {
     width: 38px;
@@ -620,103 +664,149 @@ footer > div:nth-child(3) img {
     right: 5px;
   }
   .acc3 .nav-btn svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
   #blog1 > div {
-    width: 90%;
-    padding: 2vh;
+    width: 85%;
+    padding: 25px;
+  }
+  #blog1 > div p {
+    font-size: 1.6rem;
+  }
+  .blog2 {
+    padding: 30px 15px;
   }
   .blog2 .filter-header {
     justify-content: center;
   }
   .blog2 .filter-header .custom-select {
     width: 100%;
-    max-width: 280px;
+    max-width: 250px;
   }
   .blog2 .services-grid {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 20px;
   }
 }
 @media (max-width: 480px) {
   header > div {
-    padding: 0.5rem;
+    padding: 8px 10px;
   }
   header > div #logo {
-    height: 6vh;
+    height: 40px;
+  }
+  header > div div {
+    gap: 1rem;
+    font-size: 0.85rem;
+  }
+  footer {
+    padding: 25px 15px;
+    gap: 20px;
   }
   footer > div:nth-child(1) > div {
-    width: 95%;
+    font-size: 0.85rem;
+  }
+  footer > div:nth-child(2) a {
+    font-size: 0.9rem;
+  }
+  .hero {
+    padding: 25px 0;
   }
   .hero div {
-    width: 95%;
-    min-height: 150px;
-  }
-  .hero #hero {
-    width: 95%;
+    width: 90%;
+    min-height: 120px;
+    padding: 20px;
   }
   .hero a {
-    width: 80%;
     min-width: 150px;
+    padding: 8px 20px;
   }
-  .acc2 > div {
+  .hero a p {
+    font-size: 0.9rem;
+  }
+  .acc2 {
+    padding: 30px 10px;
+  }
+  .acc2 > div:first-child {
     margin-top: 20px;
+    gap: 25px;
   }
-  .acc2 > div div:nth-child(1) {
-    width: 95%;
-    max-width: 300px;
+  .acc2 > div:first-child div:nth-child(1) {
+    width: 90%;
+    max-width: 280px;
+  }
+  .acc2 > div:first-child div:nth-child(2) h1 {
+    font-size: 1.3rem;
+  }
+  .acc2 > div:first-child div:nth-child(2) p {
+    font-size: 0.85rem;
+  }
+  .acc2 > div:last-child p {
+    font-size: 0.85rem;
   }
   .acc3 {
-    padding: 2vh 0;
+    padding: 20px 0;
   }
   .acc3 > h1 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
   }
   .acc3 .carousel-wrapper {
-    width: 100%;
     height: 340px;
   }
   .acc3 .card {
-    width: 200px;
+    width: 190px;
   }
   .acc3 .card[data-pos=prev] {
-    transform: translateX(-85%) scale(0.7);
+    transform: translateX(-90%) scale(0.75);
   }
   .acc3 .card[data-pos=next] {
-    transform: translateX(85%) scale(0.7);
+    transform: translateX(90%) scale(0.75);
   }
   .acc3 .card .card-image-wrapper {
     margin: 8px auto;
   }
   .acc3 .card .card-content {
-    padding: 0 8px;
+    padding: 0 10px;
   }
   .acc3 .card .card-content h3 {
-    font-size: 0.95rem;
-    margin: 5px 0;
+    font-size: 0.9rem;
+    margin: 8px 0 5px;
   }
   .acc3 .card .card-content p {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     min-height: 45px;
   }
   .acc3 .card .action-btn {
-    width: 70%;
-    padding: 6px 12px;
+    padding: 7px 15px;
     font-size: 0.8rem;
   }
   .acc3 .nav-btn {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
   }
   .acc3 .nav-btn svg {
     width: 16px;
     height: 16px;
   }
   #blog1 > div {
-    width: 95%;
+    width: 90%;
+    padding: 20px;
+  }
+  #blog1 > div p {
+    font-size: 1.3rem;
+  }
+  .blog2 {
+    padding: 25px 10px;
+  }
+  .blog2 .services-grid .card .card-content h3 {
+    font-size: 1rem;
+  }
+  .blog2 .services-grid .card .card-content .btn-reserver {
+    font-size: 0.85rem;
+    padding: 8px 18px;
   }
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../assets/scss/app.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22;AAAA;AAoBA;EACE;EACA;EACA;EACA,aAnBU;;;AAsBZ;EACE;EACA,OA5Bc;;;AA+BhB;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;;AAGF;EACE;EACA;EACA;EACA;;AAEA;EACE;;;AAMR;EACE;EACA;EACA;EACA,kBAhEW;EAiEX;EACA;EACA;EACA;;AAGE;EACE;EACA;EACA;EACA;;AAEA;EACE;EACA;EA1EN;EACA;EACA;EA0EM;;AAIJ;EACE;EACA;EACA;;AAEA;EACE;EACA;;AAIJ;EA3FF;EACA;EACA;;AA4FI;EACE;EACA;;;AAMR;AACA;EACE;EACA;EACA;EACA;EArGA;EACA;EACA;EARA;EACA;EACA;EA4GA;;AAEA;EACE;EACA;EACA;EACA;EACA;EArHF;EACA;EACA;;AAuHA;EACE;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EACA,kBA3IkB;EA4IlB;;AAEA;EACE;EACA;EACA;EACA;;;AAKN;EACE;EACA;EACA;EAnJA;EACA;EACA;EAmJA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EAjKJ;EACA;EACA;EAiKI;;AAGF;EACE;;AAEA;EACE;EACA;;AAGF;EACE;EACA;;AAIJ;EACE;;;AAKN;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EApNF;EACA;EACA;EAoNE;;AAGF;EACE;EACA;EACA;EA5NF;EACA;EACA;EA4NE;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;;AAGF;EAEE;EACA;EACA;EACA;;AAGF;EACE;;AAGF;EACE;;AAGF;EACE;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;;AAIJ;EACE;;AAEA;EACE;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EAvSN;EACA;EACA;;AA0SE;EACE;EACA;EACA;EACA;EACA;EACA;EACA,aAtTK;EAuTL;EACA;;AAEA;EACE;EACA;;AAKN;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EAtUF;EACA;EACA;EAsUE;EACA;EACA;;AAEA;EACE;EACA;;AAGF;EACE;;AAGF;EACE;;AAGF;EACE;EACA;;;AAKN;AACA;EACE;EACA;EACA;EACA;EA/VA;EACA;EACA;EARA;EACA;EACA;;AAuWA;EACE;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;;;AAKN;EACE;EACA;EACA;;AAEA;EACE;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAIJ;EACE;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;;AAIA;EACE;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA,kBAtbY;EAubZ;;;AAOV;AACA;EACE;IACE;IACA;;EAEA;IACE;IACA;;EAIJ;IACE;;EAEA;IACE;;EAIJ;IACE;;EAEA;IACE;IACA;;EAGF;IACE;;EAGF;IACE;;EAEA;IACE;;EAGF;IACE;;EAEA;IACE;IACA;;EAGF;IACE;IACA;;EAIJ;IACE;IACA;;;AAMR;AACA;EACE;IACE;IACA;;EAEA;IACE;IACA;;EAGF;IACE;;EAKF;IACE;;EAGF;IACE;;EAEA;IACE;;EAGF;IACE;;;AAMR;EACE;IACE;;EAIA;IACE;IACA;;EAGF;IACE;;EAIJ;IACE;;EAGF;IACE;;;AAIJ;EACE;IACE;;EAGF;IACE;;EAGF;IACE;;EAEA;IACE;;EAGF;IACE;;EAGF;IACE;;EAIJ;IACE;;EAEA;IACE;IACA;;EAEA;IACE;IACA;;EAGF;IACE;IACA;;EAMJ;IACE;IACA;;EAGF;IACE;;EAEA;IACE;;EAGF;IACE;;EAKN;IACE;;;AAIJ;EACE;IACE;IACA;;EAEA;IACE;IACA;IACA;;EAEA;IACE;;EAGF;IACE;IACA;;EAKN;IACE;IACA;IACA;IACA;;EAEA;IACE;;EAGF;IACE;;EAKF;IACE;;EAGF;IACE;;EAGF;IACE;;EAIJ;IACE;;EAEA;IACE;;EAGF;IACE;;EAKF;IACE;IACA;;EAGF;IACE;;EAEA;IACE;;EAGF;IACE;;EAGF;IACE;;EAEA;IACE;IACA;;EAKN;IACE;IACA;;EAEA;IACE;;EAGF;IACE;;EAGF;IACE;IACA;;EAKN;IACE;IACA;;EAIA;IACE;;EAEA;IACE;IACA;;EAIJ;IACE;IACA;;;AAKN;EACE;IACE;;EAEA;IACE;;EAIJ;IACE;;EAIA;IACE;IACA;;EAGF;IACE;;EAGF;IACE;IACA;;EAIJ;IACE;;EAEA;IACE;IACA;;EAIJ;IACE;;EAEA;IACE;IACA;;EAGF;IACE;IACA;;EAGF;IACE;;EAEA;IACE;;EAGF;IACE;;EAGF;IACE;;EAGF;IACE;;EAEA;IACE;IACA;;EAGF;IACE;IACA;;EAIJ;IACE;IACA;IACA;;EAIJ;IACE;IACA;;EAEA;IACE;IACA;;EAKN;IACE%22,%22file%22:%22app.output.css%22%7D */
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../assets/scss/app.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22;AAAA;AAoBA;EACE;EACA;EACA;EACA,aAnBU;EAoBV;;;AAGF;EACE;EACA,OA7Bc;;;AAgChB;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;;AAGF;EACE;EACA;EACA;EACA;;AAEA;EACE;;;AAMR;EACE;EACA;EACA;EACA,kBAhEW;EAiEX;EACA;EACA;EACA;;AAGE;EACE;EACA;EACA;EACA;;AAEA;EACE;EACA;EA1EN;EACA;EACA;EA0EM;;AAEA;EACE;EACA;;AAKN;EACE;EACA;EACA;;AAEA;EACE;EACA;;AAIJ;EAhGF;EACA;EACA;;AAiGI;EACE;EACA;EACA;;;AAMR;AACA;EACE;EACA;EACA;EACA;EA3GA;EACA;EACA;EARA;EACA;EACA;EAkHA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EA5HF;EACA;EACA;;AA8HA;EACE;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EACA,kBAlJkB;EAmJlB;EACA;;AAEA;EACE;EACA;EACA;;;AAKN;EACE;EACA;EACA;EA1JA;EACA;EACA;EA0JA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EAxKJ;EACA;EACA;EAwKI;EACA;;AAGF;EACE;EACA;;AAEA;EACE;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;;AAKN;EACE;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;;;AAKN;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EACA;EA3OF;EACA;EACA;EA2OE;;AAGF;EACE;EACA;EACA;EAnPF;EACA;EACA;EAmPE;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;;AAGF;EAEE;EACA;EACA;;AAGF;EACE;;AAGF;EACE;;AAGF;EACE;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;;AAIJ;EACE;;AAEA;EACE;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EA5TN;EACA;EACA;;AA+TE;EACE;EACA;EACA;EACA;EACA;EACA;EACA,aA3UK;EA4UL;EACA;;AAEA;EACE;EACA;;AAKN;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EA5VF;EACA;EACA;EA4VE;EACA;EACA;;AAEA;EACE;EACA;;AAGF;EACE;;AAGF;EACE;;AAGF;EACE;EACA;;;AAKN;AACA;EACE;EACA;EACA;EACA;EArXA;EACA;EACA;EARA;EACA;EACA;;AA6XA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;;;AAKN;EACE;EACA;EACA;;AAEA;EACE;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAIJ;EACE;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;AAIA;EACE;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA,kBAtdY;EAudZ;EACA;EACA;EACA;;AAEA;EACE,kBA9dI;;;AAsehB;AACA;EACE;IACE;IACA;;EAEA;IACE;IACA;;EAIJ;IACE;;EAGF;IACE;;EAEA;IACE;IACA;;EAGF;IACE;;EAGF;IACE;;EAGE;IAAK;;EACL;IAAI;IAAoB;;;AAMhC;AACA;EACE;IACE;IACA;;EAGF;IACE;IACA;;EAEA;IACE;IACA;;EAGF;IACE;;EAEA;IAAK;;EACL;IAAI;;EAKN;IACE;;EAGF;IACE;;EAEA;IAAqB;;EACrB;IAAqB;;EAIzB;IACE;;;AAIJ;EACE;IACE;;EAEA;IAAQ;;EAER;IACE;IACA;;EAIJ;IACE;IACA;;EAGF;IACE;;EAEA;IACE;IACA;;EAGF;IAAM;;EAGR;IACE;;EAEA;IACE;;EAEA;IACE;IACA;;EAGF;IACE;IACA;;EAEA;IAAK;;EACL;IAAI;;EAIR;IAAqB;;EAIrB;IAAO;;EAEP;IACE;IACA;;EAGF;IACE;;EAEA;IAAqB;;EACrB;IAAqB;;EAIzB;IACE;;EAEA;IAAI;;;AAIR;EAEI;IACE;IACA;IACA;;EAEA;IAAQ;;EAER;IACE;IACA;IACA;IACA;;EAKN;IACE;IACA;IACA;;EAEA;IACE;IACA;;EAGF;IAAyB;;EAIzB;IAAM;;EAEN;IACE;;EACA;IAAI;;EAKN;IAAmB;;EAEjB;IAAK;;EACL;IAAI;;EAIR;IACE;;EAEA;IAAO;;EAEP;IACE;IACA;;EAGF;IACE;;EAEA;IAAqB;;EACrB;IAAqB;;EAGnB;IAAK;;EACL;IAAI;IAAmB;;EAGzB;IACE;IACA;;EAIJ;IACE;IACA;;EAEA;IAAa;;EACb;IAAa;;EAEb;IAAM;IAAa;;EAIvB;IACE;IACA;;EAEA;IAAI;;EAGN;IACE;;EAEA;IACE;;EAEA;IAAiB;IAAa;;EAGhC;IACE;IACA;;;AAKN;EACE;IACE;;EAEA;IAAQ;;EAER;IACE;IACA;;EAIJ;IACE;IACA;;EAEA;IAA2B;;EAC3B;IAAuB;;EAGzB;IACE;;EAEA;IACE;IACA;IACA;;EAGF;IACE;IACA;;EAEA;IAAI;;EAIR;IACE;;EAEA;IACE;IACA;;EAEA;IACE;IACA;;EAIA;IAAK;;EACL;IAAI;;EAIR;IAAqB;;EAGvB;IACE;;EAEA;IACE;IACA;;EAGF;IAAoB;;EAEpB;IACE;;EAEA;IAAqB;;EACrB;IAAqB;;EAErB;IAAsB;;EAEtB;IACE;;EAEA;IAAK;IAAmB;;EACxB;IAAI;IAAoB;;EAG1B;IACE;IACA;;EAIJ;IACE;IACA;;EAEA;IAAM;IAAa;;EAIvB;IACE;IACA;;EAEA;IAAI;;EAGN;IACE;;EAGE;IAAK;;EACL;IAAgB;IAAoB%22,%22file%22:%22app.output.css%22%7D */
