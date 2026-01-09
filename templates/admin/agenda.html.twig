@@ -1,9 +1,11 @@
 {# templates/admin/agenda.html.twig #}
-{% extends '@EasyAdmin/page/content.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block content_title %}Mon Agenda & Tournée{% endblock %}
+{% block title %}Agenda & Planning{% endblock %}
 
-{% block main %}
+{% block body %}
+<div style="max-width: 1400px; margin: 0 auto; padding: 20px;">
+    <h1 style="margin-bottom: 30px;">📅 Mon Agenda & Tournée</h1>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
 
@@ -180,4 +182,5 @@
             };
         });
     </script>
+</div>
 {% endblock %}

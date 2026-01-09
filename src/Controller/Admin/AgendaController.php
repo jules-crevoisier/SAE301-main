@@ -3,11 +3,11 @@
 namespace App\Controller\Admin;
 
 use App\Repository\ReservationRepository;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class AgendaController extends AbstractDashboardController
+class AgendaController extends AbstractController
 {
     #[Route('/admin/agenda', name: 'admin_agenda')]
     public function index(ReservationRepository $reservationRepository): Response
