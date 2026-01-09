@@ -1,0 +1,509 @@
+/* Styles personnalisés pour EasyAdmin - Nail's Pro */
+
+:root {
+    --ea-primary: #9b59b6;
+    --ea-secondary: #8e44ad;
+    --ea-success: #27ae60;
+    --ea-danger: #e74c3c;
+    --ea-warning: #f39c12;
+    --ea-info: #3498db;
+    --ea-light: #ecf0f1;
+    --ea-dark: #2c3e50;
+}
+
+/* Global styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Header amélioré */
+.ea-header,
+header[data-ea-theme],
+.navbar {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%) !important;
+    box-shadow: 0 2px 10px rgba(155, 89, 182, 0.3);
+    border-bottom: none;
+}
+
+.ea-header .navbar-brand,
+header[data-ea-theme] .navbar-brand,
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: white !important;
+}
+
+.ea-header .navbar-nav .nav-link,
+header[data-ea-theme] .navbar-nav .nav-link,
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: color 0.3s ease;
+}
+
+.ea-header .navbar-nav .nav-link:hover,
+header[data-ea-theme] .navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:hover {
+    color: white !important;
+}
+
+/* Header amélioré */
+.ea-header {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    box-shadow: 0 2px 10px rgba(155, 89, 182, 0.3);
+}
+
+.ea-header .navbar-brand {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: white !important;
+}
+
+/* Sidebar améliorée */
+.ea-sidebar,
+aside[data-ea-theme],
+.sidebar {
+    background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%) !important;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.ea-sidebar .menu-item,
+aside[data-ea-theme] .menu-item,
+.sidebar .menu-item,
+.sidebar .nav-link {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin: 5px 10px;
+}
+
+.ea-sidebar .menu-item:hover,
+aside[data-ea-theme] .menu-item:hover,
+.sidebar .menu-item:hover,
+.sidebar .nav-link:hover {
+    background: rgba(155, 89, 182, 0.2) !important;
+    transform: translateX(5px);
+}
+
+.ea-sidebar .menu-item.active,
+aside[data-ea-theme] .menu-item.active,
+.sidebar .menu-item.active,
+.sidebar .nav-link.active {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%) !important;
+    box-shadow: 0 2px 8px rgba(155, 89, 182, 0.4);
+}
+
+.ea-sidebar .menu-item a,
+aside[data-ea-theme] .menu-item a,
+.sidebar .menu-item a,
+.sidebar .nav-link {
+    color: #ecf0f1 !important;
+    padding: 12px 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.ea-sidebar .menu-item.active a,
+aside[data-ea-theme] .menu-item.active a,
+.sidebar .menu-item.active a,
+.sidebar .nav-link.active {
+    color: white !important;
+}
+
+.ea-sidebar .menu-item i,
+aside[data-ea-theme] .menu-item i,
+.sidebar .menu-item i,
+.sidebar .nav-link i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+/* Contenu principal */
+.ea-content {
+    background: #f8f9fa;
+}
+
+/* Cards améliorées */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    color: white;
+    border-radius: 12px 12px 0 0 !important;
+    padding: 15px 20px;
+    font-weight: 600;
+}
+
+/* Boutons améliorés */
+.btn-primary {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(155, 89, 182, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #8e44ad 0%, #7d3c98 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(155, 89, 182, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(39, 174, 96, 0.3);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(231, 76, 60, 0.3);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(243, 156, 18, 0.3);
+}
+
+/* Tableaux améliorés */
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table thead {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    color: white;
+}
+
+.table thead th {
+    border: none;
+    padding: 15px;
+    font-weight: 600;
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.table tbody td {
+    padding: 15px;
+    border-color: #e9ecef;
+}
+
+/* Formulaires améliorés */
+.form-control {
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #9b59b6;
+    box-shadow: 0 0 0 0.2rem rgba(155, 89, 182, 0.25);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+/* Badges améliorés */
+.badge {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.badge-success {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+}
+
+.badge-danger {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.badge-warning {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+}
+
+.badge-info {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+/* Pagination améliorée */
+.pagination .page-link {
+    border-radius: 8px;
+    margin: 0 3px;
+    border: 2px solid #e9ecef;
+    color: #9b59b6;
+    transition: all 0.3s ease;
+}
+
+.pagination .page-link:hover {
+    background: #9b59b6;
+    color: white;
+    border-color: #9b59b6;
+}
+
+.pagination .page-item.active .page-link {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    border-color: #9b59b6;
+}
+
+/* Alertes améliorées */
+.alert {
+    border-radius: 8px;
+    border: none;
+    padding: 15px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    color: #721c24;
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    color: #856404;
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+    color: #0c5460;
+}
+
+/* Actions améliorées */
+.action-detail,
+.action-edit,
+.action-delete {
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin: 0 3px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.action-detail {
+    background: #3498db;
+    color: white;
+}
+
+.action-detail:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(52, 152, 219, 0.4);
+}
+
+.action-edit {
+    background: #f39c12;
+    color: white;
+}
+
+.action-edit:hover {
+    background: #e67e22;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(243, 156, 18, 0.4);
+}
+
+.action-delete {
+    background: #e74c3c;
+    color: white;
+}
+
+.action-delete:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(231, 76, 60, 0.4);
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #8e44ad 0%, #7d3c98 100%);
+}
+
+/* Footer amélioré */
+.ea-footer {
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Footer amélioré */
+.ea-footer,
+footer[data-ea-theme] {
+    background: #2c3e50 !important;
+    color: #ecf0f1;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Styles spécifiques EasyAdmin 4 */
+.content-header {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.content-header h1 {
+    color: #2c3e50;
+    font-weight: 600;
+    margin: 0;
+}
+
+.content-wrapper {
+    background: #f8f9fa;
+    min-height: calc(100vh - 200px);
+    padding: 20px;
+}
+
+/* Amélioration des filtres */
+.filter-form {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Amélioration des champs de recherche */
+.search-form {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.search-form .form-control {
+    border-radius: 8px;
+}
+
+/* Amélioration des modals */
+.modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    color: white;
+    border-radius: 12px 12px 0 0;
+    border: none;
+}
+
+.modal-header .modal-title {
+    font-weight: 600;
+}
+
+.modal-footer {
+    border-top: 1px solid #e9ecef;
+    padding: 15px 20px;
+}
+
+/* Amélioration des dropdowns */
+.dropdown-menu {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 8px 0;
+}
+
+.dropdown-item {
+    padding: 10px 20px;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background: #f8f9fa;
+    color: #9b59b6;
+}
+
+/* Amélioration des tooltips */
+.tooltip-inner {
+    background: #2c3e50;
+    border-radius: 6px;
+    padding: 8px 12px;
+}
+
+.tooltip.bs-tooltip-top .arrow::before {
+    border-top-color: #2c3e50;
+}
+
+/* Amélioration des selects */
+.select2-container--default .select2-selection--single {
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    height: 38px;
+}
+
+.select2-container--default .select2-selection--single:focus {
+    border-color: #9b59b6;
+}
+
+.select2-container--default .select2-results__option--highlighted {
+    background: #9b59b6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ea-sidebar,
+    aside[data-ea-theme],
+    .sidebar {
+        width: 100%;
+    }
+    
+    .card {
+        margin-bottom: 20px;
+    }
+    
+    .content-wrapper {
+        padding: 10px;
+    }
+}

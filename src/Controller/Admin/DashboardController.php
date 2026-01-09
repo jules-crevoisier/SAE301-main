@@ -8,6 +8,7 @@ use App\Entity\Reservation;
 use App\Entity\Service;
 use App\Entity\Unavailability;
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -28,7 +29,16 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Nail\'s Pro - Administration');
+            ->setTitle('<i class="fa fa-gem"></i> Nail\'s Pro - Administration')
+            ->setFaviconPath('favicon.ico')
+            ->setTextDirection('ltr')
+            ->renderContentMaximized();
+    }
+
+    public function configureAssets(): Assets
+    {
+        return Assets::new()
+            ->addCssFile('css/admin.css');
     }
 
     public function configureMenuItems(): iterable
