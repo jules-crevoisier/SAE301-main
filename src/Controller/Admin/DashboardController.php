@@ -37,6 +37,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToRoute('Retour au site', 'fa fa-globe', 'app_accueil');
         yield MenuItem::section('Administration');
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToRoute('Agenda & Planning', 'fa fa-calendar-alt', 'admin_agenda');
         yield MenuItem::linkToCrud('Réservations', 'fa fa-calendar', Reservation::class);
         yield MenuItem::linkToCrud('Services', 'fa fa-list', Service::class);
         yield MenuItem::linkToCrud('Catégories', 'fa fa-folder', Category::class);
