@@ -6,7 +6,7 @@ use App\Entity\Unavailability;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class UnavailabilityCrudController extends AbstractCrudController
 {
@@ -21,7 +21,7 @@ class UnavailabilityCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             DateTimeField::new('startDate', 'Date de début'),
             DateTimeField::new('endDate', 'Date de fin'),
-            TextareaField::new('reason', 'Raison'),
+            TextField::new('reason', 'Raison'),
         ];
     }
 }

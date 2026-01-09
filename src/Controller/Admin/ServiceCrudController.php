@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Service;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
@@ -22,10 +23,11 @@ class ServiceCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('name', 'Nom'),
+            TextField::new('title', 'Nom'),
             TextareaField::new('description', 'Description'),
             MoneyField::new('price', 'Prix')->setCurrency('EUR'),
             NumberField::new('duration', 'Durée (min)'),
+            BooleanField::new('active', 'Actif'),
             AssociationField::new('category', 'Catégorie'),
         ];
     }

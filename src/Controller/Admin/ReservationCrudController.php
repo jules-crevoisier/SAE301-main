@@ -8,7 +8,10 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class ReservationCrudController extends AbstractCrudController
@@ -22,12 +25,18 @@ class ReservationCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('firstName', 'Prénom'),
-            TextField::new('lastName', 'Nom'),
-            EmailField::new('email', 'Email'),
-            TelephoneField::new('phone', 'Téléphone'),
-            DateTimeField::new('dateTime', 'Date et heure'),
-            AssociationField::new('service', 'Service'),
+            TextField::new('reference', 'Référence'),
+            TextField::new('guestFirstname', 'Prénom'),
+            TextField::new('guestLastname', 'Nom'),
+            EmailField::new('guestEmail', 'Email'),
+            TelephoneField::new('guestPhone', 'Téléphone'),
+            DateTimeField::new('dateRdv', 'Date et heure'),
+            TextField::new('visitAddress', 'Adresse'),
+            TextField::new('status', 'Statut'),
+            MoneyField::new('totalPrice', 'Prix total')->setCurrency('EUR'),
+            NumberField::new('totalDuration', 'Durée (min)'),
+            TextareaField::new('comment', 'Commentaire')->hideOnIndex(),
+            AssociationField::new('services', 'Services'),
         ];
     }
 }
