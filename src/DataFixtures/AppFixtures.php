@@ -218,7 +218,8 @@ class AppFixtures extends Fixture
             $article->setContent($articleData['content']);
             $article->setImage($articleData['image']);
             $article->setPublished(true);
-            $article->setCreatedAt($faker->dateTimeBetween('-2 months', 'now'));
+            $createdAt = \DateTimeImmutable::createFromMutable($faker->dateTimeBetween('-2 months', 'now'));
+            $article->setCreatedAt($createdAt);
             
             $manager->persist($article);
         }
