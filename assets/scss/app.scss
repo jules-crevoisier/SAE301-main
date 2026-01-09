@@ -338,10 +338,14 @@ footer {
       font-family: $font-alt;
       font-size: 0.9rem;
       color: #333;
+      text-decoration: none;
+      display: inline-block;
       
       &:hover {
         background-color: rgba(119, 77, 154, 0.5);
         transform: translateY(-2px);
+        color: #333;
+        text-decoration: none;
       }
     }
   }
