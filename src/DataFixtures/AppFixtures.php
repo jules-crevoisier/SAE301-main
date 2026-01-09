@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Service;
 use App\Entity\User;
@@ -161,6 +162,66 @@ class AppFixtures extends Fixture
         $unavailability->setEndDate($end);
         $unavailability->setReason('Déjeuner pro');
         $manager->persist($unavailability);
+
+        // --- 7. ARTICLES BLOG ---
+        $articlesData = [
+            [
+                'title' => 'Nouvelles Capsules Tendances 2024',
+                'category' => 'capsules',
+                'excerpt' => 'Découvrez les dernières tendances en capsules pour sublimer vos ongles avec style et élégance.',
+                'content' => 'Les capsules sont devenues incontournables dans le monde du nail art. Cette année, les tendances se tournent vers des designs plus audacieux et créatifs. Que vous préfériez des capsules classiques ou des modèles plus originaux, nous avons ce qu\'il vous faut pour exprimer votre personnalité.',
+                'image' => 'https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=500',
+            ],
+            [
+                'title' => 'Pose Américaine : L\'Art de la Perfection',
+                'category' => 'pose',
+                'excerpt' => 'La pose américaine est une technique qui demande précision et savoir-faire pour un rendu impeccable.',
+                'content' => 'La pose américaine est une méthode de pose d\'ongles qui privilégie la qualité et la durabilité. Cette technique permet d\'obtenir des ongles naturels et résistants, parfaitement adaptés à votre morphologie. Nos professionnelles maîtrisent cette technique à la perfection pour vous offrir un résultat exceptionnel.',
+                'image' => 'https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=500',
+            ],
+            [
+                'title' => 'Soins & Beauté : Prenez Soin de Vos Mains',
+                'category' => 'soin',
+                'excerpt' => 'Des soins adaptés pour des mains douces et des ongles en parfaite santé toute l\'année.',
+                'content' => 'Vos mains méritent le meilleur ! Nos soins sont spécialement conçus pour hydrater, nourrir et protéger votre peau. Combinés à nos techniques de manucure professionnelle, vous obtiendrez des mains soignées et des ongles parfaitement entretenus. Un moment de détente et de bien-être vous attend.',
+                'image' => 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=500',
+            ],
+            [
+                'title' => 'Capsules XL : Le Grand Format',
+                'category' => 'capsules',
+                'excerpt' => 'Les capsules XL offrent plus d\'espace pour des designs encore plus créatifs et originaux.',
+                'content' => 'Les capsules XL sont parfaites pour celles qui souhaitent des ongles plus longs et des designs plus imposants. Ces capsules offrent une surface plus grande pour laisser libre cours à votre créativité. Idéales pour des occasions spéciales ou simplement pour changer de style.',
+                'image' => 'https://images.unsplash.com/photo-1604654894611-6973b376cbde?q=80&w=500',
+            ],
+            [
+                'title' => 'French Manucure : L\'Intemporel',
+                'category' => 'pose',
+                'excerpt' => 'La French manucure reste un classique indémodable, élégant et raffiné pour toutes les occasions.',
+                'content' => 'La French manucure est un must-have qui ne se démode jamais. Cette technique classique apporte une touche d\'élégance et de sophistication à vos ongles. Parfaite pour le quotidien comme pour les événements spéciaux, elle s\'adapte à tous les styles et toutes les personnalités.',
+                'image' => 'https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=500',
+            ],
+            [
+                'title' => 'Routine Beauté : Conseils d\'Expert',
+                'category' => 'soin',
+                'excerpt' => 'Découvrez nos conseils d\'experts pour maintenir vos ongles en parfaite santé au quotidien.',
+                'content' => 'Une bonne routine de soin est essentielle pour garder des ongles forts et en bonne santé. Nous vous partageons nos meilleurs conseils : hydratation régulière, protection contre les agressions extérieures, et entretien professionnel régulier. Suivez nos recommandations pour des ongles toujours parfaits.',
+                'image' => 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=500',
+            ],
+        ];
+
+        foreach ($articlesData as $articleData) {
+            $article = new Article();
+            $article->setTitle($articleData['title']);
+            $article->setSlug(strtolower(str_replace([' ', 'é', 'è', 'ê', 'à', 'ç'], ['-', 'e', 'e', 'e', 'a', 'c'], $articleData['title'])));
+            $article->setCategory($articleData['category']);
+            $article->setExcerpt($articleData['excerpt']);
+            $article->setContent($articleData['content']);
+            $article->setImage($articleData['image']);
+            $article->setPublished(true);
+            $article->setCreatedAt($faker->dateTimeBetween('-2 months', 'now'));
+            
+            $manager->persist($article);
+        }
 
         $manager->flush();
     }

@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}Actualités{% endblock %}
 {% block body %}
-</head>
-<body>
 <section id="blog1">
     <div>
         <p>Actualités <br> Nail'sPro</p>
@@ -10,51 +8,51 @@
 </section>
 <div class="blog2">
     <div class="filter-header">
-        <select class="custom-select" id="categoryFilter">
-            <option value="all">Choisissez votre sujet</option>
-            <option value="capsules">Nouvelles Capsules</option>
-            <option value="pose">Pose Américaine</option>
-            <option value="soin">Soins & Beauté</option>
+        <select class="custom-select" id="categoryFilter" onchange="filterArticles()">
+            <option value="all" {{ selectedCategory == 'all' ? 'selected' : '' }}>Tous les articles</option>
+            <option value="capsules" {{ selectedCategory == 'capsules' ? 'selected' : '' }}>Nouvelles Capsules</option>
+            <option value="pose" {{ selectedCategory == 'pose' ? 'selected' : '' }}>Pose Américaine</option>
+            <option value="soin" {{ selectedCategory == 'soin' ? 'selected' : '' }}>Soins & Beauté</option>
         </select>
     </div>
-    <div class="services-grid" id="servicesGrid" data-turbo="false">
-        <div class="card" data-category="capsules">
-            <div class="card-image">
-                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=500" alt="Capsules">
+    <div class="services-grid" id="servicesGrid">
+        {% if articles|length > 0 %}
+            {% for article in articles %}
+                <div class="card" data-category="{{ article.category }}">
+                    <div class="card-image">
+                        {% if article.image %}
+                            <img src="{{ article.image }}" alt="{{ article.title }}">
+                        {% else %}
+                            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=500" alt="{{ article.title }}">
+                        {% endif %}
+                    </div>
+                    <div class="card-content">
+                        <h3>{{ article.title }}</h3>
+                        {% if article.excerpt %}
+                            <p class="article-excerpt">{{ article.excerpt }}</p>
+                        {% endif %}
+                        <div class="article-meta">
+                            <span class="article-date">{{ article.createdAt|date('d/m/Y') }}</span>
+                            <span class="article-category">{{ article.category }}</span>
+                        </div>
+                        <a href="{{ path('app_reservation_new') }}" class="btn-reserver" style="background-color: #6b21a8">Réserver</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="no-articles">
+                <p>Aucun article disponible pour le moment.</p>
             </div>
-            <div class="card-content">
-                <h3>Nouvelles Capsules</h3>
-                <a href='/reservation' class="btn-reserver" style="background-color: #6b21a8">Voir plus</a>
-            </div>
-        </div>
-        <div class="card" data-category="pose">
-            <div class="card-image">
-                <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=500" alt="Pose">
-            </div>
-            <div class="card-content">
-                <h3>Pose Américaine</h3>
-                <a href='/reservation' class="btn-reserver" style="background-color: #6b21a8">Voir plus</a>
-            </div>
-        </div>
-        <div class="card" data-category="soin">
-            <div class="card-image">
-                <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=500" alt="Soin">
-            </div>
-            <div class="card-content">
-                <h3>Soin des mains</h3>
-                <a href='/reservation' class="btn-reserver" style="background-color: #6b21a8">Voir plus</a>
-            </div>
-        </div>
-        <div class="card" data-category="capsules">
-            <div class="card-image">
-                <img src="https://images.unsplash.com/photo-1604654894611-6973b376cbde?q=80&w=500" alt="Capsules">
-            </div>
-            <div class="card-content">
-                <h3>Capsules XL</h3>
-                <a href='/reservation' class="btn-reserver" style="background-color: #6b21a8">Voir plus</a>
-            </div>
-        </div>
+        {% endif %}
     </div>
 </div>
-<script>const filterSelect = document.getElementById('categoryFilter');const cards = document.querySelectorAll('.card');filterSelect.addEventListener('change', function() {const selectedValue = this.value;cards.forEach(card => {if (selectedValue === 'all' || card.getAttribute('data-category') === selectedValue) {card.style.display = 'block';setTimeout(() => { card.style.opacity = '1'; }, 10);} else {card.style.opacity = '0';card.style.display = 'none';}});});</script>
+<script>
+    function filterArticles() {
+        const filterSelect = document.getElementById('categoryFilter');
+        const selectedValue = filterSelect.value;
+        const url = new URL(window.location.href);
+        url.searchParams.set('category', selectedValue);
+        window.location.href = url.toString();
+    }
+</script>
 {% endblock %}

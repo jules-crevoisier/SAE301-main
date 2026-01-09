@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Promotion;
 use App\Entity\Reservation;
@@ -42,5 +43,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Promotions', 'fa fa-percent', Promotion::class);
         yield MenuItem::linkToCrud('Indisponibilités', 'fa fa-ban', Unavailability::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-users', User::class);
+        yield MenuItem::section('Blog');
+        yield MenuItem::linkToCrud('Articles', 'fa fa-newspaper', Article::class);
     }
 }

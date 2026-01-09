@@ -440,6 +440,14 @@ footer {
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     
+    .no-articles {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      color: #666;
+      font-size: 1.1rem;
+    }
+    
     .card {
       background-color: rgba(255,255,255,0.8);
       border-radius: 20px;
@@ -468,6 +476,37 @@ footer {
           margin: 15px 0;
           font-weight: 600;
           color: #333;
+        }
+        
+        .article-excerpt {
+          font-size: 0.9rem;
+          color: #666;
+          margin: 10px 0;
+          line-height: 1.5;
+          min-height: 60px;
+        }
+        
+        .article-meta {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: 15px 0;
+          padding: 8px 0;
+          border-top: 1px solid #eee;
+          border-bottom: 1px solid #eee;
+          font-size: 0.85rem;
+          
+          .article-date {
+            color: #999;
+          }
+          
+          .article-category {
+            background: rgba(119, 77, 154, 0.2);
+            padding: 4px 10px;
+            border-radius: 12px;
+            color: #774d9a;
+            font-weight: 500;
+          }
         }
         
         .btn-reserver {
