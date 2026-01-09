@@ -16,7 +16,7 @@ class AgendaController extends AbstractController
         $reservations = $reservationRepository->createQueryBuilder('r')
             ->where('r.status IN (:statuses)')
             ->setParameter('statuses', ['CONFIRMED', 'PENDING_PAYMENT', 'PENDING'])
-            ->orderBy('r.dateRdv', 'ASC')
+            ->orderBy('r.date_rdv', 'ASC')
             ->getQuery()
             ->getResult();
         
