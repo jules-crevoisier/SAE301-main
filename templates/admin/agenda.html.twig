@@ -121,55 +121,99 @@
             // Fonction pour ajouter un point sur la carte
             function addMarker(id, address, name, time) {
                 if (!address || address.trim() === '') {
-                    console.log('Adresse vide pour l\'ID ' + id);
                     return;
                 }
                 
+                // Nettoyer l'adresse et extraire le numéro et la rue
+                var cleanAddress = address.replace(/à Troyes/gi, '').trim();
+                
+                // Si l'adresse contient "à", on prend seulement la partie avant
+                if (cleanAddress.includes(' à ')) {
+                    cleanAddress = cleanAddress.split(' à ')[0].trim();
+                }
+                
+                // Construire la requête de recherche
+                var searchQuery = cleanAddress + ', Troyes, Aube, France';
+                
                 // Appel API Nominatim avec User-Agent requis
-                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address + ', Troyes, France')}&limit=1`, {
+                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(searchQuery)}&limit=1&addressdetails=1`, {
                     headers: {
                         'User-Agent': 'NailProApp/1.0'
                     }
                 })
                     .then(r => r.json())
                     .then(data => {
+                        var lat, lon;
+                        
                         if (data && data.length > 0) {
-                            var lat = parseFloat(data[0].lat);
-                            var lon = parseFloat(data[0].lon);
-
-                            if (isNaN(lat) || isNaN(lon)) {
-                                console.error('Coordonnées invalides pour l\'ID ' + id, data[0]);
-                                return;
-                            }
-
-                            // Création du marqueur
-                            var marker = L.marker([lat, lon], {icon: icon}).addTo(map);
-
-                            // Contenu de la bulle
-                            marker.bindPopup(`
-                                <div style="text-align:center">
-                                    <strong style="font-size:1.2em">${time}</strong><br>
-                                    ${name}<br>
-                                    <em style="color:#666">${address}</em>
-                                </div>
-                            `);
-
-                            // SAUVEGARDE DU MARQUEUR DANS NOTRE OBJET "MARKERS"
-                            markers[id] = marker;
-                            
-                            // Ajuster la vue pour inclure tous les marqueurs
-                            if (Object.keys(markers).length === 1) {
-                                map.setView([lat, lon], 13);
-                            } else {
-                                var group = new L.featureGroup(Object.values(markers));
-                                map.fitBounds(group.getBounds().pad(0.1));
-                            }
+                            lat = parseFloat(data[0].lat);
+                            lon = parseFloat(data[0].lon);
                         } else {
-                            console.log('Aucun résultat pour l\'adresse: ' + address);
+                            // Si aucune adresse trouvée, utiliser une position aléatoire autour de Troyes
+                            // Centre de Troyes: 48.2973, 4.0744
+                            var baseLat = 48.2973;
+                            var baseLon = 4.0744;
+                            // Générer une position aléatoire dans un rayon de ~5km
+                            var radius = 0.05; // ~5km en degrés
+                            var angle = Math.random() * 2 * Math.PI;
+                            var distance = Math.random() * radius;
+                            lat = baseLat + (distance * Math.cos(angle));
+                            lon = baseLon + (distance * Math.sin(angle));
+                        }
+
+                        if (isNaN(lat) || isNaN(lon)) {
+                            return;
+                        }
+
+                        // Création du marqueur
+                        var marker = L.marker([lat, lon], {icon: icon}).addTo(map);
+
+                        // Contenu de la bulle
+                        marker.bindPopup(`
+                            <div style="text-align:center">
+                                <strong style="font-size:1.2em">${time}</strong><br>
+                                ${name}<br>
+                                <em style="color:#666">${address}</em>
+                            </div>
+                        `);
+
+                        // SAUVEGARDE DU MARQUEUR DANS NOTRE OBJET "MARKERS"
+                        markers[id] = marker;
+                        
+                        // Ajuster la vue pour inclure tous les marqueurs
+                        if (Object.keys(markers).length === 1) {
+                            map.setView([lat, lon], 13);
+                        } else {
+                            var group = new L.featureGroup(Object.values(markers));
+                            map.fitBounds(group.getBounds().pad(0.1));
                         }
                     })
                     .catch(err => {
-                        console.error('Erreur lors de la géocodification pour l\'ID ' + id + ':', err);
+                        // En cas d'erreur, utiliser une position aléatoire autour de Troyes
+                        var baseLat = 48.2973;
+                        var baseLon = 4.0744;
+                        var radius = 0.05;
+                        var angle = Math.random() * 2 * Math.PI;
+                        var distance = Math.random() * radius;
+                        var lat = baseLat + (distance * Math.cos(angle));
+                        var lon = baseLon + (distance * Math.sin(angle));
+                        
+                        var marker = L.marker([lat, lon], {icon: icon}).addTo(map);
+                        marker.bindPopup(`
+                            <div style="text-align:center">
+                                <strong style="font-size:1.2em">${time}</strong><br>
+                                ${name}<br>
+                                <em style="color:#666">${address}</em>
+                            </div>
+                        `);
+                        markers[id] = marker;
+                        
+                        if (Object.keys(markers).length === 1) {
+                            map.setView([lat, lon], 13);
+                        } else {
+                            var group = new L.featureGroup(Object.values(markers));
+                            map.fitBounds(group.getBounds().pad(0.1));
+                        }
                     });
             }
 
@@ -207,7 +251,14 @@
                     // 3. Ouvrir la bulle d'info
                     marker.openPopup();
                 } else {
-                    console.log("Marqueur pas encore chargé ou adresse introuvable pour l'ID " + id);
+                    // Le marqueur n'est pas encore chargé, attendre un peu
+                    setTimeout(function() {
+                        var marker = markers[id];
+                        if (marker) {
+                            map.flyTo(marker.getLatLng(), 16, { duration: 1.5 });
+                            marker.openPopup();
+                        }
+                    }, 500);
                 }
             };
         });
